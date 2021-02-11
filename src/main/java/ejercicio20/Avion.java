@@ -46,7 +46,9 @@ public class Avion {
         }
     }
     
-    public void reservar(int numero) {
+    public boolean reservar(int numero) {
+        
+        boolean realizado = false;
         
         for (int i = 0; i < asientos.length; i++) {
 
@@ -54,13 +56,23 @@ public class Avion {
 
                 if (this.asientos[i][j].getNumeroAsiento() == numero) {
                     
-                    this.asientos[i][j].setDisponible(false);
+                    if(this.asientos[i][j].isDisponible()){
+                        
+                        this.asientos[i][j].setDisponible(false);
+                        realizado = true;
+                    } else {
+                        System.out.println("Asiento ocupado");
+                    }
                 }
             }
         }
+        
+        return realizado;
     }
     
-    public void cancelar(int numero) {
+    public boolean cancelar(int numero) {
+        
+        boolean realizado = false;
         
         for (int i = 0; i < asientos.length; i++) {
 
@@ -68,10 +80,18 @@ public class Avion {
 
                 if (this.asientos[i][j].getNumeroAsiento() == numero) {
                     
-                    this.asientos[i][j].setDisponible(true);
+                     if(!this.asientos[i][j].isDisponible()){
+                        
+                        this.asientos[i][j].setDisponible(true);
+                        realizado = true;
+                    } else {
+                        System.out.println("Asiento no reservado");
+                    }
                 }
             }
         }
+        
+        return realizado;
     }
     
     public void imprimir() {
