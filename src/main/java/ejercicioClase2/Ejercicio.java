@@ -93,6 +93,34 @@ public class Ejercicio {
         }
     }
 
+    private static int comprobarCorregido() {
+
+        boolean candidato = true;
+        int numero = 0;
+        int col = 0;
+        int fila = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+
+            //METODO QUE PASE FILA Y CON ESO YA TNGO FILA FIJA
+            col = mirarFila(i);
+
+            for (int j = 0; j < matriz[i].length; j++) {
+
+                if (matriz[i][col] > matriz[j][col]) {
+
+                    candidato = false;
+                }
+            }
+        }
+
+        if (candidato) {
+            return numero;
+        } else {
+            return -1;
+        }
+    }
+
     private static int comprobar(int i, int j) {
 
         boolean posCandidato = true, candidato = true;
@@ -167,5 +195,22 @@ public class Ejercicio {
                 matriz[i][j] = teclado.nextInt();
             }
         }
+    }
+
+    private static int mirarFila(int i) {
+
+        int col = 0;
+        int numero = matriz[i][0];
+
+        for (int j = 1; j < matriz.length; j++) {
+
+            if (numero < matriz[i][j]) {
+
+                numero = matriz[i][j];
+                col = j;
+            }
+        }
+
+        return col;
     }
 }

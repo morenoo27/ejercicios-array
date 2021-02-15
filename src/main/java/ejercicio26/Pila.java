@@ -72,7 +72,7 @@ public class Pila {
 
     public void show() {
 
-        for (int i = 0; i < this.pila.size(); i++) {
+        for (int i = this.pila.size()-1; i >= 0; i--) {
 
             System.out.println("| " + this.pila.get(i) + " |");
             System.out.println("-----");
