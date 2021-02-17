@@ -7,6 +7,9 @@ package map;
 
 import java.util.HashMap;
 import java.util.Map;
+import map.EjercicioClase.Decimos;
+import map.EjercicioClase.Premio;
+import map.EjercicioClase.TiposPremio;
 
 /**
  *
@@ -14,11 +17,22 @@ import java.util.Map;
  */
 public class Loteria {
 
-    private Map<String, Integer> loteria;
+    private Map<Decimos, TiposPremio> loteria;
 
     public Loteria() {
-        
+
         this.loteria = new HashMap<>();
     }
 
+    public void addPremio(Decimos decimo, TiposPremio premio) {
+        this.loteria.put(decimo, premio);
+    }
+
+    public TiposPremio consulta(Decimos decimo) {
+        return this.loteria.get(decimo);
+    }
+
+    public Map<Decimos, TiposPremio> getLoteria() {
+        return this.loteria;
+    }
 }

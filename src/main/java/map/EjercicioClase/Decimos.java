@@ -13,15 +13,18 @@ import java.util.Random;
  * @author alejandro
  */
 public class Decimos {
-    
+
     private String numero;
-    
-    
+
     static Random random = new Random();
 
     public Decimos() {
-    
+
         this.numero = generarDecimo();
+    }
+
+    public Decimos(String numero) {
+        this.numero = numero;
     }
 
     public String getNumero() {
@@ -32,6 +35,11 @@ public class Decimos {
         this.numero = numero;
     }
 
+    @Override
+    public String toString() {
+        return numero;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -56,22 +64,12 @@ public class Decimos {
         }
         return true;
     }
-    
-    
 
-    private String generarDecimo() {
-        
+    private static String generarDecimo() {
+
         //creamos aleatoriament el numero del decimo con in Integer
         Integer numero = random.nextInt(100000);
-        
-        String numeroConvertido = String.valueOf(numero);
-        
-        //String numeroConvertido = String.valueOf(random.nextInt(100000));
-        
-        return numeroConvertido.format("%05d", numeroConvertido);
-    }
 
-    
-    
-    
+        return String.format("%05d", numero);
+    }
 }

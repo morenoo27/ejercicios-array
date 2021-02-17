@@ -11,13 +11,21 @@ package map.EjercicioClase;
  */
 public enum TiposPremio {
     
-    PRIMER_PREMIO,
-    SEGUNDO_PREMIO,
-    TERCER_PREMIO,
-    CUARTO_PREMIO,
-    QUINTO_PREMIO,
-    NORMAL_PREMIO,
-    NO_PREMIO;
+    PRIMER_PREMIO(25000000),
+    SEGUNDO_PREMIO(750000),
+    TERCER_PREMIO(250000),
+    CUARTO_PREMIO(100000),
+    QUINTO_PREMIO(25000),
+    NORMAL_PREMIO(1000);
     
+    private double premio;
+
+    private TiposPremio(double premio) {
+        this.premio = premio;
+    }
+
+    public double getPremio() {
+        return premio;
+    }
     
 }
